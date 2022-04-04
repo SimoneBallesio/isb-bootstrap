@@ -1,2 +1,2 @@
-# isb-bootstrap
+# ISB Bootstrap
 Repository for personal web projects bootstrap files.
