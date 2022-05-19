@@ -6,6 +6,7 @@ export abstract class BaseComponent {
   protected abstract selector: string;
   protected abstract init(): void;
   protected destroy(): void {};
+  protected main: Main;
   protected el: HTMLNode;
   protected deepSync: boolean = false;
 
@@ -23,7 +24,8 @@ export abstract class BaseComponent {
     this.init();
   }
 
-  constructor( protected main: Main ) {
+  constructor( main: Main ) {
+    this.main = main;
     this.main.on( "content-init", () => this.check() );
   }
 }
