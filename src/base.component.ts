@@ -13,7 +13,7 @@ export abstract class BaseComponent {
   private check(): void {
     const candidate: HTMLNode = new HTMLNode( this.selector );
     const mustDestroy: boolean = ( !!this.el && this.deepSync )
-      || ( !!this.el && this.el.nativeElement !== candidate.nativeElement );
+			|| ( !!this.el && this.el.nativeArray.filter( li => candidate.nativeArray.indexOf( li ) < 0 ).length > 0 );
     const mustStart: boolean = ( !this.el || mustDestroy ) && candidate.length > 0;
     if ( mustDestroy ) this.destroy();
     if ( mustStart ) this.start( candidate );
