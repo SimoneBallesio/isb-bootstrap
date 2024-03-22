@@ -7,7 +7,7 @@ export class Main {
 	private emitters: { [key: string]: Subject<any> };
 
 	public createEvent( ...args: string[] ): void {
-		args.forEach( name => this.emitters[name] = new Subject<boolean>() );
+		args.forEach( name => !this.emitters[name] && ( this.emitters[name] = new Subject<boolean>() ) );
 	}
 
 	public on( name: string, callback: Function ): Subscription[] {
